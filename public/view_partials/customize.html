@@ -1,0 +1,25 @@
+
+<div id="customize">
+  <div class="row small-margin-top">
+    <div class="small-margin-bottom text-align-right col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+      <fieldset class="xs-margin-top">
+        <label class="info">Select a color</label>
+        <input class="color-input" value="{{widgetObject.customize.background.color}}" ng-style="{backgroundColor:widgetObject.customize.background.color}"/>
+      </fieldset>
+      <fieldset class="xs-margin-top" ng-repeat="option in vm.options track by $index">
+        <label class="info">{{option.label}}</label>
+        <div class="inline-block">
+          <div class="onoffswitch">
+            <input class="onoffswitch-checkbox" id="customize_checkbox_{{$index}}" type="checkbox" name="customize_checkbox_{{$index}}" ng-model="vm.customize[option.model]" ng-click="vm.updateModel();"/>
+            <label class="onoffswitch-label" for="customize_checkbox_{{$index}}"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="row">
+    <div class="text-align-center col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+      <button class="active" ng-click="vm.openPreviewModal();">See a preview&nbsp;<i class="fa fa-external-link"> </i></button>
+    </div>
+  </div>
+</div>

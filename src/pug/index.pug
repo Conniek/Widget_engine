@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=9')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Widget Engine
+    link(rel="icon",href="//www.shopbot.ca/favicon.ico")
+    link(href='css/style.css', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat|Poppins|Source+Serif+Pro', rel='stylesheet')
+    base(href='/')
+    script(src='js/script.js')
+  body(ng-app='MyApp', ng-controller='main_controller as vm', ng-cloak='')
+    toaster-container(toaster-options="{'time-out': 2500, 'limit':1, 'close-button':false, 'position-class': 'toast-bottom-right','animation-class': 'toast-bottom-right'}")
+    section.style-two
+      form#widget_form(name="vm.widgetForm")
+        .auto-container
+          .row
+            .container-box.anim-5-all
+              article.left.col-lg-offset-0.col-lg-6.col-md-offset-0.col-md-6.col-sm-offset-0.col-sm-6.col-xs-offset-0.col-xs-4
+                .row.normal-margin-bottom
+                  .text-align-left.col-lg-offset-0.col-lg-6.col-md-offset-0.col-md-6.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+                    img.logo.xs-margin(src="images/general/logo.svg")
+                  .text-align-right.small.col-lg-offset-0.col-lg-6.col-md-offset-0.col-md-6.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+                    span.small-margin.normal-line-height Hello {{vm.userName}}
+                .row
+                  .small-margin-top.col-lg-offset-0.col-lg-6.col-md-offset-0.col-md-6.col-sm-offset-0.col-sm-6.col-xs-offset-0.col-xs-12
+                    .after-circle.col-lg-offset-0.col-lg-12.col-md-offset-0.col-md-12.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+                      | {{vm.currentStep.id}}
+                    ul
+                      li(ng-repeat = "step in vm.steps | stepsFilter", ng-click='vm.linkClick($event)',ng-class="{active:vm.isCurrentStep(step)}")
+                        a(ng-click="vm.stepRedirect(step)")
+                          | {{step.menu_title}}
+                  .small-margin-top.col-lg-offset-0.col-lg-6.col-md-offset-0.col-md-6.col-sm-offset-0.col-sm-6.col-xs-offset-0.col-xs-12
+                    .row
+                      .small-padding-left.small-padding-top.col-lg-offset-0.col-lg-12.col-md-offset-0.col-md-12.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+                        h2 {{vm.currentStep.menu_title}}
+                      .small-padding-left.col-lg-offset-0.col-lg-12.col-md-offset-0.col-md-12.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+                        div.xs-padding-top.small-padding-right.text-align-justify
+                          | {{vm.currentStep.text}}
+              article.right.col-lg-offset-0.col-lg-6.col-md-offset-0.col-md-6.col-sm-offset-0.col-sm-6.col-xs-offset-0.col-xs-8
+                .row.small-margin-bottom
+                  .text-align-right.col-lg-offset-0.col-lg-12.col-md-offset-0.col-md-12.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+                    a.small-margin.normal-line-height(href="http://shopbot.business/",target="_blank")
+                      i.fa.fa-arrow-left.xs-padding-right
+                      | Back to Affiliate Platform 
+                h1.text-orange.uppercase.text-align-center.small-margin-top.small-margin-bottom {{vm.currentStep.title}}
+                .view.anim-in-out.anim-fade(ui-view='', data-anim-sync="false", data-anim-speed='300')
+                .row.xs-margin-top
+                  .text-align-center.col-lg-offset-0.col-lg-12.col-md-offset-0.col-md-12.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+                    a.reset(ng-click="vm.resetContent()",ng-if="vm.isCorrectStep('content')")
+                      i.fa.fa-recycle.xs-padding-right
+                      | Reset
+                    button(ng-click="vm.linkClick($event);vm.actionStep();",ng-class="{active:vm.isStepCompleted()}",ng-if="vm.isCorrectStep()")
+                      | {{vm.textButton}}
+                    button.active(  ng-if="vm.isCorrectStep('code')",ngclipboard,
+                                    ng-class="{'flash-button':vm.isFlashing}",
+                                    data-clipboard-target="#previewCode",
+                                    ngclipboard-success="vm.copySuccess(e);"
+                                  )
+                      | {{vm.textCode}}
+                  .clearfix

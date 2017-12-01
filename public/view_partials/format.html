@@ -1,0 +1,18 @@
+
+<div class="view-child" id="format" ng-scrollbars="ng-scrollbars">
+  <div class="row">
+    <div class="col col-lg-offset-0 col-lg-4 col-md-offset-0 col-md-6 col-sm-offset-0 col-sm-6 col-xs-offset-0 col-xs-6" ng-repeat="format in vm.formats track by $index">
+      <label for="{{format.id}}" ng-class="{'selected2':vm.isSelected(format)}">
+        <div class="block"><img class="inline-block" src="images/format/{{format.id}}.jpg"/></div>
+        <div class="block">
+          <input class="inline-block" name="format" type="radio" id="{{format.id}}" ng-disabled="format.disabled" value="{{format}}" ng-model="vm.format" ng-change="vm.formatSelected();"/>
+          <div class="inline-block">
+            <div class="block small">{{format.name}}</div>
+            <div class="block xs" ng-if="format.width!='auto'">{{format.width}}x{{format.height}}</div>
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

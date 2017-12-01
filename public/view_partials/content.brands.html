@@ -1,0 +1,8 @@
+
+<div class="view-child" id="brands">
+  <div class="row">
+    <div class="text-align-center col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">
+      <angucomplete-alt placeholder="{{brand_placeholder}}" pause="300" selected-object="content.brand" remote-url="{{widgetObject.url_ws}}/brands?token={{widgetObject.token}}&amp;q=" remote-url-data-field="data" title-field="label" description-field="brand" input-class="form-control form-control-small" minlength="2"></angucomplete-alt><a class="back full_width" ng-click="vm.cancelOrBack('brand')"><i class="fa fa-arrow-left xs-padding-right"></i><span ng-if="vm.isCancellable">Cancel</span><span ng-if="!vm.isCancellable">Back</span></a>
+    </div>
+  </div>
+</div>

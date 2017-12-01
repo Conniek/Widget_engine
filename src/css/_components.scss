@@ -1,0 +1,289 @@
+
+* { font-size:$normal-fontsize;font-weight: normal; outline: 0 !important;}
+
+html,body
+{
+  overflow:hidden;
+  height:100vh !important;
+  width:100vw !important;
+  font-family: $default-fonts;
+  margin: 0; padding: 0;
+
+}
+
+.view
+{
+  min-height:calc(100% - 36vh);
+  overflow:hidden;
+
+  .view-child{max-height: 100%;}
+}
+
+
+h1 {font-size:$h1-fontsize;color:$white;text-transform:capitalize;}
+h2 {font-size:$h2-fontsize;color:$orange;text-transform:capitalize;letter-spacing:-1px;}
+
+li {font-size: $li-fontsize;}
+
+a {color:$grey;cursor:pointer;text-decoration: none !important;}
+a:hover, a:visited, a:link, a:active{text-decoration: none !important;}
+
+button,.button
+{
+    background: $grey;
+    padding: 15px 0;
+    width:180px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    color:$white;
+    border:none;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 12px;
+    cursor:pointer;
+
+    &.active {  background: $orange;color:$white; }
+    &:not(.active) {&.loading:after {display:none;}}
+    &.squared { padding: 10px;  border-radius: 5px; }
+}
+
+
+label {font-weight:normal;white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;}
+
+
+.selected {border: 1px solid $orange !important;}
+.selected2 {border:1px dotted $grey !important;}
+
+.loading:after
+{
+  /*font-family: FontAwesome;
+  content:"\f021";
+  */
+
+  content: url('../images/general/loaderWhite.svg');
+
+  margin-left: 15px;
+  vertical-align: middle;
+  color: $white !important;
+  position:absolute;
+  display:inline-block;
+  border-radius:50%;
+  margin-top:1px;
+}
+
+
+.reset
+{
+  position:absolute;
+  margin-left: -7vw;
+    margin-top: 12px;
+}
+
+/**************************************************************************************************
+	SECTIONS
+ ***********************************************************************************************/
+
+.style-two
+{
+  position:relative;
+  padding:0;
+  z-index:999;  background:$white;
+
+  .auto-container { margin:0 auto;  }
+
+  .container-box
+  {
+    position:relative;
+    margin:-120px auto 0px;
+    padding: 0;
+    margin-top:0;
+
+    &:before,&:after
+    {
+      display:none;
+      z-index: -1;
+      position: absolute;
+      content: "";
+      top: 0px;
+      left: 5px;
+      width: 5px;
+      height:150px;
+      -webkit-transform: rotate(-3deg);
+      -moz-transform: rotate(-3deg);
+      -o-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+    }
+
+    &:after
+    {
+      -webkit-transform: rotate(3deg);
+      -moz-transform: rotate(3deg);
+      -o-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+      transform: rotate(3deg);
+      right: 5px;
+      left: auto;
+     }
+
+     article
+      {
+        position:relative;
+        color:$black;
+        padding:4vh 4%;
+        margin:0;
+        height:100vh;
+        overflow-y:auto;
+        overflow-x:hidden;
+
+        &.left
+        {
+          background:$orange;
+
+          * {color:$white;}
+
+          .logo
+          {
+            height:37px;
+          }
+
+          .after-circle
+          {
+              -moz-border-radius: 50%;
+              -webkit-border-radius: 50%;
+              border-radius: 50%;
+              color: $white;
+              border: 1px solid $white;
+              float: right;
+              width: 36px;
+              height: 36px;
+              line-height: 36px;
+              text-align: center;
+              margin-top:45px;
+              left:17px;
+              padding: 0;
+          }
+          ul
+          {
+            text-align:justify;
+
+            li
+            {
+              padding-top: 30px;
+              list-style:none;
+              text-transform:capitalize;
+
+              &:not(:nth-child(1)):not(:nth-child(2)) {border-right:1px dashed $white;}
+              &.active
+              {
+                 list-style:initial;
+                 a {color: $white !important;font-weight:bold;}
+              }
+
+              a { color: $orange-dark; }
+            }
+          }
+        }
+        &.right { border: 1px solid $grey;  border-left: 0; }
+      }
+    }
+  }
+
+/**************************************************************************************************
+  POPUP/MODAL
+ ***********************************************************************************************/
+.modal {text-align: center;}
+
+@media screen and (min-width: 768px)
+{
+  .modal:before {display: inline-block;vertical-align: middle;content: " ";height: 100%;}
+}
+
+.modal-dialog
+{
+  display: inline-block;
+  vertical-align: middle;
+
+  //div{margin: 30px 0 30px 0;}
+
+  a{display: inline-block;}
+}
+
+.full-modal
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100vw;
+    height: 100vh;
+
+    .modal-content{border-radius:0;}
+
+    .modal-dialog, .modal-body
+    {
+        display: inline-block;
+        //margin: 0;
+        padding: 0;
+        width: auto;
+    }
+
+    // .modal-dialog div {margin:0;}
+
+    .loader-modal
+    {
+      padding:5px 10px;
+
+      * {display:inline-block;vertical-align:middle; margin: 0 5px;}
+      img { height:20px;  }
+    }
+
+}
+/**************************************************************************************************
+  FLASHING
+ ***********************************************************************************************/
+
+.flash-button {
+    background:$orange;
+    color:$white;
+
+    animation-name: flash;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    //Firefox 1+
+    -webkit-animation-name: flash;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    //Safari 3-4
+    -moz-animation-name: flash;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+  }
+
+  @keyframes flash {
+      0% { opacity: 1.0; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1.0; }
+  }
+
+  //Firefox 1+
+  @-webkit-keyframes flash {
+      0% { opacity: 1.0; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1.0; }
+  }
+
+  //Safari 3-4
+  @-moz-keyframes flash {
+      0% { opacity: 1.0; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1.0; }
+  }

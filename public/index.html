@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget Engine</title>
+    <link rel="icon" href="//www.shopbot.ca/favicon.ico">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Source+Serif+Pro" rel="stylesheet">
+    <base href="/">
+    <script src="js/script.js"></script>
+  </head>
+  <body ng-app="MyApp" ng-controller="main_controller as vm" ng-cloak="">
+    <toaster-container toaster-options="{'time-out': 2500, 'limit':1, 'close-button':false, 'position-class': 'toast-bottom-right','animation-class': 'toast-bottom-right'}"></toaster-container>
+    <section class="style-two">
+      <form id="widget_form" name="vm.widgetForm">
+        <div class="auto-container">
+          <div class="row">
+            <div class="container-box anim-5-all">
+              <article class="left col-lg-offset-0 col-lg-6 col-md-offset-0 col-md-6 col-sm-offset-0 col-sm-6 col-xs-offset-0 col-xs-4">
+                <div class="row normal-margin-bottom">
+                  <div class="text-align-left col-lg-offset-0 col-lg-6 col-md-offset-0 col-md-6 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12"><img class="logo xs-margin" src="images/general/logo.svg"></div>
+                  <div class="text-align-right small col-lg-offset-0 col-lg-6 col-md-offset-0 col-md-6 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12"><span class="small-margin normal-line-height">Hello {{vm.userName}}</span></div>
+                </div>
+                <div class="row">
+                  <div class="small-margin-top col-lg-offset-0 col-lg-6 col-md-offset-0 col-md-6 col-sm-offset-0 col-sm-6 col-xs-offset-0 col-xs-12">
+                    <div class="after-circle col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">{{vm.currentStep.id}}</div>
+                    <ul>
+                      <li ng-repeat="step in vm.steps | stepsFilter" ng-click="vm.linkClick($event)" ng-class="{active:vm.isCurrentStep(step)}"><a ng-click="vm.stepRedirect(step)">{{step.menu_title}}</a></li>
+                    </ul>
+                  </div>
+                  <div class="small-margin-top col-lg-offset-0 col-lg-6 col-md-offset-0 col-md-6 col-sm-offset-0 col-sm-6 col-xs-offset-0 col-xs-12">
+                    <div class="row">
+                      <div class="small-padding-left small-padding-top col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">
+                        <h2>{{vm.currentStep.menu_title}}</h2>
+                      </div>
+                      <div class="small-padding-left col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">
+                        <div class="xs-padding-top small-padding-right text-align-justify">{{vm.currentStep.text}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="right col-lg-offset-0 col-lg-6 col-md-offset-0 col-md-6 col-sm-offset-0 col-sm-6 col-xs-offset-0 col-xs-8">
+                <div class="row small-margin-bottom">
+                  <div class="text-align-right col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12"><a class="small-margin normal-line-height" href="http://shopbot.business/" target="_blank"><i class="fa fa-arrow-left xs-padding-right"></i>Back to Affiliate Platform </a></div>
+                </div>
+                <h1 class="text-orange uppercase text-align-center small-margin-top small-margin-bottom">{{vm.currentStep.title}}</h1>
+                <div class="view anim-in-out anim-fade" ui-view="" data-anim-sync="false" data-anim-speed="300"></div>
+                <div class="row xs-margin-top">
+                  <div class="text-align-center col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12"><a class="reset" ng-click="vm.resetContent()" ng-if="vm.isCorrectStep('content')"><i class="fa fa-recycle xs-padding-right"></i>Reset</a>
+                    <button ng-click="vm.linkClick($event);vm.actionStep();" ng-class="{active:vm.isStepCompleted()}" ng-if="vm.isCorrectStep()">{{vm.textButton}}</button>
+                    <button class="active" ng-if="vm.isCorrectStep('code')" ngclipboard ng-class="{'flash-button':vm.isFlashing}" data-clipboard-target="#previewCode" ngclipboard-success="vm.copySuccess(e);">{{vm.textCode}}</button>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

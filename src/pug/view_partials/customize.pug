@@ -1,0 +1,21 @@
+#customize
+  .row.small-margin-top
+    .small-margin-bottom.text-align-right.col-lg-offset-2.col-lg-8.col-md-offset-2.col-md-8.col-sm-offset-2.col-sm-8.col-xs-offset-2.col-xs-8
+      fieldset.xs-margin-top
+        label.info Select a color
+        input.color-input(value="{{widgetObject.customize.background.color}}",ng-style ="{backgroundColor:widgetObject.customize.background.color}")
+      fieldset.xs-margin-top(ng-repeat="option in vm.options track by $index")
+        label.info {{option.label}}
+        .inline-block
+          .onoffswitch
+            input.onoffswitch-checkbox(id='customize_checkbox_{{$index}}',type='checkbox', name='customize_checkbox_{{$index}}', ng-model="vm.customize[option.model]",ng-click="vm.updateModel();")
+            label.onoffswitch-label(for='customize_checkbox_{{$index}}')
+              span.onoffswitch-inner
+              span.onoffswitch-switch
+  .row
+    .text-align-center.col-lg-offset-2.col-lg-8.col-md-offset-2.col-md-8.col-sm-offset-2.col-sm-8.col-xs-offset-2.col-xs-8
+      button.active(ng-click="vm.openPreviewModal();")
+        | See a preview&nbsp;
+        i.fa.fa-external-link 
+
+

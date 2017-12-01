@@ -1,0 +1,134 @@
+
+$orange : #FF3300;
+$orange-off : #bf360c;
+$orange-light : #ff6f00;
+$orange-dark : #a02800;
+$white : #FFFFFF;
+$black : #333333;
+$grey : #b2b2b2;
+$yellow : #FEEC00;
+$blue : #75b9f0;
+
+.text-orange        {color:$orange !important;}
+.text-orange-off    {color:$orange-off !important;}
+.text-orange-light  {color:$orange-light !important;}
+.text-white         {color:$white !important;}
+.text-black         {color:$black !important;}
+.text-grey          {color:$grey !important;}
+.text-yellow        {color:$yellow !important;}
+
+.bg-orange        {background-color:$orange !important;}
+.bg-orange-off    {background-color:$orange-off !important;}
+.bg-orange-light  {background-color:$orange-light !important;}
+.bg-white         {background-color:$white !important;}
+.bg-black         {background-color:$black !important;}
+.bg-grey          {background-color:$grey !important;}
+.bg-yellow        {background-color:$yellow !important;}
+
+.bold  {font-weight:bold !important;}
+.italic  {font-style: italic !important;}
+.underline  {text-decoration: underline !important;}
+
+.border-grey        {border:1px solid $grey;}
+.border-top-grey    {border-top:1px solid $grey;}
+.border-bottom-grey {border-bottom:1px solid $grey;}
+.border-left-grey   {border-left:1px solid $grey;}
+.border-right-grey  {border-right:1px solid $grey;}
+
+$default-fonts : 'Poppins', 'Source Serif Pro', 'Montserrat', 'Helvetica', serif;
+
+$h1-fontsize : 30px;
+$h2-fontsize : 24px;
+$normal-fontsize : 14px;
+$small-fontsize : 12px;
+$xs-fontsize : 10px;
+$li-fontsize : 11px;
+
+.h1     {font-size: $h1-fontsize !important;}
+.h2     {font-size: $h2-fontsize !important;}
+.normal {font-size: $normal-fontsize !important;}
+.small  {font-size: $small-fontsize !important;}
+.xs     {font-size: $xs-fontsize !important;}
+.li     {font-size: $li-fontsize !important;}
+
+
+.text-align-center  {text-align:center;}
+.text-align-justify {text-align:justify;}
+.text-align-left    {text-align:left;}
+.text-align-right   {text-align:right;}
+
+.no-margin          {margin:0 !important;}
+.no-margin-left     {margin-left:0 !important;}
+.no-margin-right    {margin-right:0 !important;}
+.no-margin-bottom   {margin-bottom:0 !important;}
+.no-margin-top      {margin-top:0 !important;}
+
+.no-padding          {padding:0 !important;}
+.no-padding-left     {padding-left:0 !important;}
+.no-padding-right    {padding-right:0 !important;}
+.no-padding-bottom   {padding-bottom:0 !important;}
+.no-padding-top      {padding-top:0 !important;}
+
+.capitalize          {text-transform: capitalize !important;}
+.uppercase           {text-transform: uppercase !important;}
+
+.block        {display:block !important;}
+.inline-block {display:inline-block !important;vertical-align:middle !important;}
+.full_width {width:100% !important;}
+
+$normal-padding : 60px;
+$small-padding : 30px;
+$xs-padding : 15px;
+
+.normal-padding {  padding:$normal-padding;}
+
+.normal-padding-top {  padding-top:$normal-padding;}
+.normal-padding-right {  padding-right:$normal-padding;}
+.normal-padding-left {  padding-left:$normal-padding;}
+.normal-padding-bottom {  padding-bottom:$normal-padding;}
+
+.small-padding        { padding:$small-padding;}
+
+.small-padding-top {  padding-top:$small-padding;}
+.small-padding-right {  padding-right:$small-padding;}
+.small-padding-left {  padding-left:$small-padding;}
+.small-padding-bottom {  padding-bottom:$small-padding;}
+
+.xs-padding-top     { padding-top:$xs-padding;}
+.xs-padding-right    { padding-right:$xs-padding;}
+.xs-padding-left    { padding-left:$xs-padding;}
+.xs-padding-bottom    { padding-bottom:$xs-padding;}
+
+$normal-margin : 10vh;
+$small-margin : 5vh;
+$xs-margin : 2.5vh;
+
+
+.normal-margin{margin:$normal-margin;}
+
+.normal-margin-top{margin-top:$normal-margin;}
+.normal-margin-right{margin-right:$normal-margin;}
+.normal-margin-bottom{margin-bottom:$normal-margin;}
+.normal-margin-left{margin-left:$normal-margin;}
+
+
+.small-margin{margin:$small-margin;}
+
+.small-margin-top     { margin-top:$small-margin;}
+.small-margin-right   { margin-right:$small-margin;}
+.small-margin-bottom  { margin-bottom:$small-margin;}
+.small-margin-left    { margin-left:$small-margin;}
+
+.xs-margin{margin:$xs-margin;}
+
+.xs-margin-top{margin-top:$xs-margin;}
+.xs-margin-right{margin-right:$xs-margin;}
+.xs-margin-bottom{margin-bottom:$xs-margin;}
+.xs-margin-left{margin-left:$xs-margin;}
+
+
+.normal-line-height {
+    line-height: $normal-margin;
+}
+
+

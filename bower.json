@@ -1,0 +1,37 @@
+{
+  "name": "widget_engine",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "jquery": "3.1.0",
+    "angular": "1.5.7",
+    "angular-ui-router": "0.2.18",
+    "angular-animate": "1.5.7",
+    "angular-aria": "1.5.7",
+    "angular-ui-router-anim-in-out": "1.0.2",
+    "underscore": "1.8.3",
+    "angular-carousel": "1.0.1",
+    "angular-touch": "1.2.10",
+    "angular-ui-select": "^0.19.6",
+    "angular-bootstrap": "2.4.0",
+    "angucomplete-alt": "2.5.0",
+    "ng-scrollbars": "0.0.11",
+    "huebee": "1.0.0",
+    "components-font-awesome": "4.7.0",
+    "ngclipboard": "1.1.1",
+    "angular-sanitize": "1.5.7"
+  },
+  "resolutions": {
+    "angular": "1.5.7"
+  }
+}

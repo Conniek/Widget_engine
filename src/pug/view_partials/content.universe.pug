@@ -1,0 +1,9 @@
+#universe.view-child
+  .row
+    .text-align-center.col-lg-offset-0.col-lg-12.col-md-offset-0.col-md-12.col-sm-offset-0.col-sm-12.col-xs-offset-0.col-xs-12
+      angucomplete-alt(								  placeholder='{{universe_placeholder}}', pause='300', selected-object='content.universe.lvl0', remote-url='{{widgetObject.url_ws}}/categories?token={{widgetObject.token}}&q=', remote-url-data-field='data', title-field='label', description-field='Universes', input-class='form-control form-control-small',minlength="0")
+      angucomplete-alt(ng-if="content.universe.lvl0", placeholder='{{category_placeholder}}', pause='300', selected-object='content.universe.lvl1', remote-url='{{widgetObject.url_ws}}/categories?token={{widgetObject.token}}&cat_id={{content.universe.lvl0.originalObject.id}}&q=', remote-url-data-field='data', title-field='label', description-field='Categories', input-class='form-control form-control-small',minlength="0")
+      a.back.full_width(ng-click="vm.cancelOrBack('universe')")
+        i.fa.fa-arrow-left.xs-padding-right
+        span(ng-if="vm.isCancellable") Cancel
+        span(ng-if="!vm.isCancellable") Back

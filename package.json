@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^2.18.7",
+    "del": "^2.2.2",
+    "gulp": "^3.8.8",
+    "gulp-bower": "0.0.13",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-install": "^0.6.0",
+    "gulp-minify": "0.0.15",
+    "gulp-pug": "^3.2.0",
+    "gulp-pug2": "0.0.2",
+    "gulp-s3-ls": "^1.0.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-shell": "^0.6.3",
+    "gulp-util": "^3.0.8"
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "clean": "gulp clean && rm -fr ./node_modules"
+  }
+}

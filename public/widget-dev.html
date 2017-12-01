@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="background:grey">
+    <h1>Avant</h1>
+    <script>
+        (function() {
+            function l(c) {
+                var d = document,
+                    s = d.createElement("script"),
+                    ss = d.getElementsByTagName("script")[0];
+                s.src = "http://localhost:3000/widgetEngine.js?" + Math.random();
+                if (s.readyState) {
+                    s.onreadystatechange = function() {
+                        if (s.readyState == "loaded" || s.readyState == "complete") {
+                            s.onreadystatechange = null;
+                            c();
+                        }
+                    };
+                } else {
+                    s.onload = function() {
+                        c();
+                    };
+                }
+                ss.parentNode.insertBefore(s, ss);
+            };
+            l(function() {
+                w.o = {
+                    "url": "https://api.shopbot.ca/widget/api/v1",
+                    "t": "_d8897h5wdNN2u9LmQqzZQvUeYTrUeyEAcn6ACUOAmnKGNlBRSBqWA==",
+                    "f": "mediumRectangle",
+                    "w": 300,
+                    "h": 250,
+                    "tpl": 1,
+                    "u_id": 9994,
+                    "c_id": 939,
+                    "p_id": null,
+                    "b_id": null,
+                    "cst": {
+                        "background": {
+                            "color": "#F33C00",
+                            "hue": 60,
+                            "lum": 0.5,
+                            "sat": 1
+                        },
+                        "shopBotLogo": true,
+                        "shopBotReview": true,
+                        "discountSpot": true,
+                        "sponsorOffers": true
+                    }
+                };
+                w.r();
+            });
+        }());
+    </script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <div class="shopBotWidget"></div>
+    <h1>Après</h1>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+#content.view-child
+  .row.full_width(ng-if="vm.isMain()")
+    .col-lg-offset-0.col-lg-12.col-md-offset-0.col-md-12.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10
+      ui-select(ng-model="vm.country",required,name="country")
+        ui-select-match(placeholder="Choose a country")
+          div(ng-bind='$select.selected.name')
+        ui-select-choices(all-choices="vm.countries",repeat='country in vm.countries | filter:  $select.search')
+          div(ng-bind-html='country.name | highlight: $select.search')
+  .row.small-margin-top.full_width(ng-if="vm.isMain()")
+    .small-margin-bottom.col-lg-offset-0.col-lg-4.col-md-offset-0.col-md-4.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10
+      .button.squared.full_width(ng-click="vm.clickContent('universe');",ng-class="{ 'active': vm.country}")
+        .small(ng-if="!content.universe.lvl0") Add Universe
+        .small(ng-if="content.universe.lvl0")
+          | {{content.universe.lvl0.title}}
+          i.edit.fa.fa-pencil-square-o
+      .xs.full_width.xs-margin-top(ng-if="content.universe.lvl1")
+        .small.lvl1 {{content.universe.lvl1.title}}
+    .small-margin-bottom.col-lg-offset-0.col-lg-4.col-md-offset-0.col-md-4.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10
+      .button.squared.full_width(ng-click="vm.clickContent('products');",ng-class="{ 'active': vm.country}")
+        .small(ng-if="!content.product") Add Products
+        .small(ng-if="content.product")
+          | {{content.product.title}}
+          i.edit.fa.fa-pencil-square-o
+    .small-margin-bottom.col-lg-offset-0.col-lg-4.col-md-offset-0.col-md-4.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10
+      a.button.squared.full_width(ng-click="vm.clickContent('brands')",ng-class="{ 'active': vm.country}")
+        .small(ng-if="!content.brand") Add Brands
+        .small(ng-if="content.brand")
+          | {{content.brand.title}}
+          i.edit.fa.fa-pencil-square-o
+  div(ui-view="")
+#offers.text-align-center(ng-if="vm.isMain()")
+  div {{vm.count}}
+
+
